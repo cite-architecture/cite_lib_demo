@@ -6,7 +6,7 @@
 import io.github.cite_architecture.cite._
 
 def demoNode(u: CtsUrn) {
-  println("\nSingle node cited")
+  println("\n\tSingle node cited")
   u.passageNodeSubref match {
     case "" => println("\tNo subreference")
     case subref => {
@@ -27,7 +27,7 @@ def demoNode(u: CtsUrn) {
 
 def demoRange(u: CtsUrn) {
 
-  println("\nRange cited")
+  println("\n\tRange cited")
   println("\tFirst node is " + u.rangeBegin)
 
   u.rangeBeginSubref match {

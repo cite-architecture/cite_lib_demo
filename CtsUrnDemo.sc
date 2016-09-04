@@ -1,5 +1,8 @@
 
 // You need to have a resolver for UH to do this:
+// it's taken care of in the build.sbt of this project,
+// so if you run sbt test:console, you can load this file
+// and use its functions.
 import io.github.cite_architecture.cite._
 
 def demoNode(u: CtsUrn) {
@@ -98,4 +101,24 @@ def showOff(s: String) {
       case false => demoNode(u)
     }
   }
+  println("")
+}
+
+def cycleExamples {
+  val urns = Vector("urn:cts:greekLit:tlg0012:",
+    "urn:cts:greekLit:tlg0012.tlg001:",
+    "urn:cts:greekLit:tlg0012.tlg001.msA:",
+    "urn:cts:greekLit:tlg0012.tlg001.msA.lex:",
+    "urn:cts:greekLit:tlg0012.tlg001.msA.lex:1.1",
+    "urn:cts:greekLit:tlg0012.tlg001.msA:1.1@wrath",
+    "urn:cts:greekLit:tlg0012.tlg001.msA:1.1@wrath[1]",
+
+    "urn:cts:greekLit:tlg0012.tlg001.msA:1.1-1.2",
+    "urn:cts:greekLit:tlg0012.tlg001.msA:1.1@wrath-1.2",
+    "urn:cts:greekLit:tlg0012.tlg001.msA:1.1@wrath-1.2@dogs",
+    "urn:cts:greekLit:tlg0012.tlg001.msA:1.1@wrath[1]-1.2@dogs",
+    "urn:cts:greekLit:tlg0012.tlg001.msA:1.1@wrath-1.2@dogs[1]",
+    "urn:cts:greekLit:tlg0012.tlg001.msA:1.1@wrath[1]-1.2@dogs[1]" )
+
+  for  (u <- urns)  showOff(u)
 }
